@@ -1,0 +1,33 @@
+<!--<div ng-include="'components/navbar/navbar.html'"></div>-->
+<h1>Book finder</h1>
+
+
+
+<form ng-submit="searchBook()">
+    <input id="search" ng-model="search" placeHolder="Title or Author">
+    <input id="button" class="btn-primary" type="submit" value="Search">
+</form>
+
+<div id="results">
+    <div class="row">
+        <div class="col-md-6">
+            <table ng-table="tableParams" class="table">
+                <tr ng-repeat="book in $data">
+                    <td>
+                        <img ng-src="{{book.smallThumbnail}}"></td>
+                    <td>
+                        <a class="book-title">{{book.title}}</a>
+                        <div>{{book.authors}}</div>
+                        <div>{{book.publisher}}</div>
+                        <div>- {{book.pageCount}} pages</div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--<div ng-include="'components/footer/footer.html'"></div>-->

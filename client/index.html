@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+    <title>Books</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bookfinder.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="js/vendor/stormpath-sdk-angularjs.min.js"></script>
+    <script src="js/vendor/stormpath-sdk-angularjs.tpls.min.js"></script>
+    <link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+    <script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
+    <script src="js/vendor/angular-ui-router.min.js"></script>
+    <script src="app/app.js"></script>
+
+    <!--sensation.io-->
+    <link rel="stylesheet" href="css/sensation-webplugin.css"/>
+    <script type="text/javascript" src="js/vendor/sensation-webplugin.js"></script>
+    <script type="text/javascript" src="https://ea.sensation.io/atlas-confluence/js/sio-map-atlas-controller.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+            integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+            crossorigin="anonymous"></script>
+
+    <!--<script src="app/login/login.controller.js"></script>-->
+    <!--<script src="app/login/login.js"></script>-->
+    <!--<script src="app/dashboard/dashboard.controller.js"></script>-->
+    <!--<script src="app/dashboard/dashboard.js"></script>-->
+    <script src="app/main/main.controller.js"></script>
+    <script src="app/main/main.js"></script>
+    <!--<script src="app/register/register.controller.js"></script>-->
+    <!--<script src="app/register/register.js"></script>-->
+    <!--<script src="components/navbar/navbar.controller.js"></script>-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-scroll/1.0.0/angular-scroll.js"></script>
+
+</head>
+
+<body ng-app="booksApp">
+
+    <div id="all">
+        <!-- Add your site or application content here -->
+        <div ui-view=""></div>
+    </div>
+    <div id="sio-question-title"></div>
+    <div id="sio-emotion-map"></div>
+
+    <script type="text/javascript">
+        var obj = {
+            clientid: "7IA6RR5UEV66IWDTRW7U8CYH2",
+            tenantid: "v2d147fa2e0a64432abd22ca95a3063063",
+            redirectUrl: "https://e00feffb.ngrok.io/sioauth.html",
+            questionId: "4bd6c701-ec25-11e5-a08c-13d97d640d75",
+            key: "test",
+            color: "#FFCC28",
+//            gridMode: "dotted",
+            tags: "tag1"
+    //            bgColor: "value",
+    //            gridColor: "value"
+
+        };
+        $(document).ready(function () {
+            loadSioMap(obj)
+        });
+    </script>
+
+
+
+</body>
+</html>

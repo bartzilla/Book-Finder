@@ -1,0 +1,138 @@
+
+
+.emotionmap-container {
+	position: relative;
+    padding: 20px;
+}
+
+/*if bootstrap is being used*/
+.emotionmap-container {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.emotionmap-table {
+    border-spacing: 0px;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.emotionmap-point {
+    padding: 0px;
+    transition: all 0.4s ease 0s;
+
+}
+
+.emotionmap-point-hover {
+	background-color:rgb(228, 40, 57);
+	/*box-shadow: rgba(228, 40, 57, 0.6) 0px 0px 100px 25px;*/
+}
+
+.emotionmap-label {
+    color: #8e8e8e;
+    font-size: 12px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+
+.emotionmap-label-left {
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+    top: 50%;
+    left: 5px;
+}
+
+.emotionmap-label-top {
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    text-align: center;
+    right: 0px;
+}
+
+.emotionmap-label-right {
+    position: absolute;
+    transform: translateX(50%) translateY(-50%) rotate(90deg);
+    top: 50%;
+    right: 5px;
+}
+
+.emotionmap-label-bottom {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    text-align: center;
+    right: 0px;
+}
+
+
+.emotionmap-text {
+    position: absolute;
+    /*background-color: rgba(255, 255, 255,0.7);*/
+    font-size: 18px;
+    color: rgba(0,0,0,0.7);
+    overflow: hidden;
+    padding: 10px;
+}
+
+
+.emotionmap-text-huge {
+    font-size: 60px;
+}
+
+.emotionmap-text-overall {
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+}
+
+.emotionmap-text-topleft {
+    top: 20px;
+    left: 20px;
+    width: 125px;
+    overflow: hidden;
+    height: 125px;
+}
+
+.emotionmap-text-topright {
+    top: 20px;
+    right: 20px;
+    width: 125px;
+    height: 125px;
+}
+
+.emotionmap-text-bottomleft {
+    bottom: 20px;
+    left: 20px;
+    width: 125px;
+    overflow: hidden;
+    height: 126px;
+}
+
+.emotionmap-text-bottomright {
+    bottom: 20px;
+    right: 20px;
+}
+
+
+.emotionmap-loading {
+    background-image: url(sensation-webplugin-loading.svg);
+    background-size: cover;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.emotionmap-loading .emotionmap-table {
+    visibility: hidden;
+}
+
+.emotionmap-loading .emotionmap-label {
+    visibility: hidden;
+}
+
+.emotionmap-loading .emotionmap-text {
+    display: none;
+}
