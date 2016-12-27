@@ -1,6 +1,47 @@
+/*.book-title {*/
+    /**/
+    /*font-weight: bold;*/
+    /*text-decoration: none;*/
+    /*font-size: 16px;*/
+/*}*/
 .book-title {
     color: #0a69b9;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 16px;
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 15px;
+    max-height: 30px;
+    margin-bottom: 1px;
 }
+
+.book-author {
+    color: #595E68;
+    font-size: 11px;
+    margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 15px;
+    max-height: 30px;
+    margin-top: 1px;
+}
+
+.border_top_grey {
+    border-top: 1px solid #F2F2F2;
+}
+
+.cover_wrapper{
+    height: 200px;
+}
+
+.text_wrapper{
+    height: 60px;
+}
+
+
+/*.card .card-block {max-height:300px;overflow:auto;}*/

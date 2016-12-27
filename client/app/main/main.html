@@ -4,28 +4,47 @@
 
 
 <form ng-submit="searchBook()">
-    <input id="search" ng-model="search" placeHolder="Title or Author">
+    <input id="search" value="Harry Potter" ng-model="search" placeHolder="Title or Author">
     <input id="button" class="btn-primary" type="submit" value="Search">
 </form>
 
-<div id="results">
-    <div class="row">
-        <div class="col-md-6">
-            <table ng-table="tableParams" class="table">
-                <tr ng-repeat="book in $data">
-                    <td>
-                        <img ng-src="{{book.smallThumbnail}}"></td>
-                    <td>
-                        <a class="book-title">{{book.title}}</a>
-                        <div>{{book.authors}}</div>
-                        <div>{{book.publisher}}</div>
-                        <div>- {{book.pageCount}} pages</div>
-                    </td>
-                </tr>
-            </table>
+<div class="container">
+    <div id="row">
+        <div class="card-group">
+            <div class="col-xs-2" ng-repeat="book in data" style="padding-top: 10px">
+                <div class="card card-block">
+                    <div class="cover_wrapper">
+                        <img style="max-height: 190px;" class="card-img-center" src="{{book.thumbnail}}" alt="Card image cap">
+                    </div>
+                    <div class="text_wrapper border_top_grey">
+                        <h2 class="book-title">{{book.title}}</h2>
+                        <p class="book-author">{{book.authors}}</p>
+                        <p class="book-author">{{book.categories}}</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+                 <!--<div class="row">-->
+                <!--<div class="col-md-6">-->
+                <!--&lt;!&ndash;<table ng-table="tableParams" class="table">&ndash;&gt;-->
+                    <!--<div ng-repeat="book in data">-->
+                        <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                            <!--<img ng-src="{{book.thumbnail}}"></td>-->
+                        <!--&lt;!&ndash;<td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<a class="book-title">{{book.title}}</a>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div>{{book.authors}}</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div>{{book.publisher}}</div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<div>- {{book.pageCount}} pages</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</td>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--&lt;!&ndash;</table>&ndash;&gt;-->
         </div>
     </div>
 </div>
+
 
 
 

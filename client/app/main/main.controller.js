@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('booksApp')
-  .controller('MainCtrl', function ($scope, $http, NgTableParams) {
+  .controller('MainCtrl', function ($scope, $http) {
 
     $scope.searchBook = function(){
 
       // Simple GET request example:
       $http({
         method: 'GET',
-        url: "https://www.googleapis.com/books/v1/volumes?q=" + $scope.search
+        url: "https://www.googleapis.com/books/v1/volumes?q=" + $scope.search + '&maxResults=11'
       }).then(function (response) {
          formatData(response.data.items);
       }, function errorCallback(response) {
@@ -18,21 +18,30 @@ angular.module('booksApp')
     };
 
     var formatData = function(rawData){
-      console.log('This is the raw data: ', rawData);
 
-      var data = [];
+      $scope.data = [];
 
       for(var i = 0; i < rawData.length; i++) {
-        data[i] = {
-          smallThumbnail: rawData[i].volumeInfo.imageLinks.smallThumbnail,
+        $scope.data[i] = {
+          thumbnail: getThumbnail(rawData[i].volumeInfo.imageLinks),
           title: rawData[i].volumeInfo.title ? rawData[i].volumeInfo.title : '',
           publisher: getPublisher(rawData[i].volumeInfo.publisher, rawData[i].volumeInfo.publishedDate),
           pageCount: rawData[i].volumeInfo.pageCount ? rawData[i].volumeInfo.pageCount : '',
           authors: getAuthors(rawData[i].volumeInfo.authors)
         };
       }
+    };
 
-      $scope.tableParams = new NgTableParams({}, { dataset: data});
+
+    var getThumbnail = function (thumbnailUrl) {
+
+      if(thumbnailUrl){
+        var largeThumbnail = thumbnailUrl.thumbnail.replace(/(zoom=)[^\&]+/, '$1' + 1);
+
+        // var newUrl = "?" + $.param(params);
+        return largeThumbnail;
+      }
+      return '';
     };
 
     var getPublisher = function (publisher, date){
@@ -53,6 +62,6 @@ angular.module('booksApp')
       }
 
       return 'Unknown';
-    }
+    };
 
   });

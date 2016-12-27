@@ -4,7 +4,6 @@ angular.module('booksApp', [
   'ui.router',
   'stormpath',
   'stormpath.templates',
-  'ngTable',
   'duScroll'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
