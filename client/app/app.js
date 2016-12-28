@@ -4,7 +4,7 @@ angular.module('booksApp', [
   'ui.router',
   'stormpath',
   'stormpath.templates',
-  'duScroll'
+  'infinite-scroll'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider

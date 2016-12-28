@@ -10,8 +10,15 @@
     </div>
 </nav>
 
-Hello!!
-
+<div class="container" infinite-scroll="nextPage()" infinite-scroll-disabled="busy"
+    infinite-scroll-distance="0">
+    <div masonry>
+        <div class="masonry-brick" ng-repeat="book in books">
+            <img ng-src="{{book.thumbnail}}" alt="A masonry brick">
+        </div>
+    </div>
+    <div ng-show="busy">Loading data..</div>
+</div>
 
 
 

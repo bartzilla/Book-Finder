@@ -3,19 +3,31 @@
 angular.module('booksApp')
   .controller('MosaicSearch', function ($scope, $http) {
 
-    $scope.searchBook = function(){
+    $scope.busy = false;
+    $scope.allData = [];
+    $scope.books = [];
+    var step = 0;
 
-      // Simple GET request example:
+    $scope.nextPage = function() {
+
+      if($scope.busy) return;
+
+      $scope.busy = true;
+
       $http({
         method: 'GET',
-        url: "https://www.googleapis.com/books/v1/volumes?q=" + $scope.search + '&maxResults=11'
+        url: "https://www.googleapis.com/books/v1/volumes?q=" + 'paulo coelho' + '&startIndex='+ step +'&maxResults=11'
       }).then(function (response) {
         formatData(response.data.items);
+        step +=11;
+        $scope.busy = false;
+        console.log('Not busy');
         console.log('Done for: ', $scope.search);
       }, function errorCallback(response) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.
       });
+
     };
 
     var formatData = function(rawData){
@@ -31,6 +43,7 @@ angular.module('booksApp')
           authors: getAuthors(rawData[i].volumeInfo.authors)
         };
       }
+      $scope.books = $scope.books.concat($scope.data);
     };
 
     var getThumbnail = function (thumbnailUrl) {
@@ -67,5 +80,5 @@ angular.module('booksApp')
     var myFunction = function() {
       window.alert('Yo')
     };
-    
+
   });
