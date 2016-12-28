@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('booksApp')
-  .controller('MainCtrl', function ($scope, $http) {
+  .controller('MosaicSearch', function ($scope, $http) {
 
     $scope.searchBook = function(){
 
@@ -10,7 +10,8 @@ angular.module('booksApp')
         method: 'GET',
         url: "https://www.googleapis.com/books/v1/volumes?q=" + $scope.search + '&maxResults=11'
       }).then(function (response) {
-         formatData(response.data.items);
+        formatData(response.data.items);
+        console.log('Done for: ', $scope.search);
       }, function errorCallback(response) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.
@@ -66,5 +67,5 @@ angular.module('booksApp')
     var myFunction = function() {
       window.alert('Yo')
     };
-
+    
   });
