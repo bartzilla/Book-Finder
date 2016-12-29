@@ -46,7 +46,7 @@ angular.module('booksApp')
       for(var i = 0; i < rawData.length; i++) {
         $scope.data[i] = {
           thumbnail: getThumbnail(rawData[i].volumeInfo.imageLinks),
-          title: rawData[i].volumeInfo.title ? rawData[i].volumeInfo.title : '',
+          title: rawData[i].volumeInfo.title ? rawData[i].volumeInfo.title.toUpperCase() : '',
           publisher: getPublisher(rawData[i].volumeInfo.publisher, rawData[i].volumeInfo.publishedDate),
           pageCount: rawData[i].volumeInfo.pageCount ? rawData[i].volumeInfo.pageCount : '',
           authors: getAuthors(rawData[i].volumeInfo.authors)
@@ -80,7 +80,7 @@ angular.module('booksApp')
         for (var i = 0; i < authors.length; i++) {
           authorString += ', ' + authors[i];
         }
-        return authorString.substring(1);
+        return authorString.toUpperCase().substring(1);
       }
 
       return 'Unknown';

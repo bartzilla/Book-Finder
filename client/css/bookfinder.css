@@ -1,5 +1,8 @@
 body {padding-top: 70px; background-color: #E6E7EC}
 
+.dark{
+    background-color: #373a3c!important;
+}
 .book-title {
     color: #0a69b9;
     font-size: 13px;
