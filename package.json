@@ -9,6 +9,7 @@
   "author": "cipriano",
   "license": "ISC",
   "dependencies": {
+    "angular-masonry": "^0.16.0",
     "angular-ui-router": "^0.3.1",
     "body-parser": "^1.12.3",
     "express": "^4.14.0",

@@ -8,18 +8,23 @@ angular.module('booksApp')
     $scope.books = [];
     var step = 0;
 
+    $scope.searchBook = function(){
+      $scope.books = [];
+      step = 0;
+      $scope.nextPage();
+    };
+
     $scope.nextPage = function() {
 
       if($scope.busy) return;
 
       $scope.busy = true;
-
       $http({
         method: 'GET',
-        url: "https://www.googleapis.com/books/v1/volumes?q=" + 'paulo coelho' + '&startIndex='+ step +'&maxResults=11'
+        url: "https://www.googleapis.com/books/v1/volumes?q=" + $scope.search + '&startIndex='+ step +'&maxResults=40'
       }).then(function (response) {
         formatData(response.data.items);
-        step +=11;
+        step +=40;
         $scope.busy = false;
         console.log('Not busy');
         console.log('Done for: ', $scope.search);
