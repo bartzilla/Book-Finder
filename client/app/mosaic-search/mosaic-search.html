@@ -10,13 +10,14 @@
     </div>
 </nav>
 
+
 <div class="container" infinite-scroll="nextPage()" infinite-scroll-disabled="busy"
     infinite-scroll-distance="0">
     <div id="row">
         <div class="card-group">
-            <a href="">
                 <div masonry column-width="90" preserve-order>
-                        <div class="masonry-brick" ng-repeat="book in books" style="padding-top: 20px">
+                    <div class="masonry-brick" ng-repeat="book in books" style="padding-top: 20px">
+                        <a href="" ng-click="showAdvanced($event)">
                             <div class="card card-block" style="width: 160px; padding: 15px">
                                 <img class="book-thumbnail"ng-src="{{book.thumbnail}}" alt="A masonry brick">
                                 <div class="text_wrapper-mosaic border_top_grey">
@@ -25,15 +26,13 @@
                                     <p class="book-author">{{book.categories}}</p>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
-            </a>
             <div ng-show="busy">Loading data..</div>
         </div>
     </div>
 </div>
-
 
 <!--<div class="container" infinite-scroll="nextPage()" infinite-scroll-disabled="busy"-->
      <!--infinite-scroll-distance="0">-->

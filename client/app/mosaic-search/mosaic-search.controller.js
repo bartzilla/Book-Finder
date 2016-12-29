@@ -1,12 +1,46 @@
 'use strict';
 
 angular.module('booksApp')
-  .controller('MosaicSearch', function ($scope, $http) {
+  .controller('MosaicSearch', function ($scope, $http, $mdDialog) {
 
     $scope.busy = false;
     $scope.allData = [];
     $scope.books = [];
     var step = 0;
+
+
+
+    $scope.showAdvanced = function(ev) {
+      $mdDialog.show({
+        controller: DialogController,
+        templateUrl: 'app/mosaic-search/dialog1.tmpl.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        clickOutsideToClose:true,
+        fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+      })
+        .then(function(answer) {
+          $scope.status = 'You said the information was "' + answer + '".';
+        }, function() {
+          $scope.status = 'You cancelled the dialog.';
+        });
+    };
+
+    function DialogController($scope, $mdDialog) {
+      $scope.hide = function() {
+        $mdDialog.hide();
+      };
+
+      $scope.cancel = function() {
+        $mdDialog.cancel();
+      };
+
+      $scope.answer = function(answer) {
+        $mdDialog.hide(answer);
+      };
+    }
+
+
 
     $scope.searchBook = function(){
       if($scope.search !== ''){
@@ -18,8 +52,7 @@ angular.module('booksApp')
 
     $scope.nextPage = function() {
 
-      // $scope.search = 'harry potter';
-
+      $scope.search = 'harry potter';
       if($scope.busy || $scope.search === undefined) return;
 
       $scope.busy = true;
@@ -42,7 +75,6 @@ angular.module('booksApp')
     var formatData = function(rawData){
 
       $scope.data = [];
-
       for(var i = 0; i < rawData.length; i++) {
         $scope.data[i] = {
           thumbnail: getThumbnail(rawData[i].volumeInfo.imageLinks),
