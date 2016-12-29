@@ -15,15 +15,13 @@
     <div id="row">
         <div class="card-group">
             <a href="">
-                <div masonry column-width="200" preserve-order>
-                        <div class="masonry-brick" ng-repeat="book in books">
-                            <div class="card card-block" style="width: 180px">
-                                <div class="cover_wrapper">
-                                    <img ng-src="{{book.thumbnail}}" alt="A masonry brick">
-                                </div>
-                                <div class="text_wrapper border_top_grey">
-                                    <h2 class="book-title">{{book.title}}</h2>
-                                    <p class="book-author">{{book.authors}}</p>
+                <div masonry column-width="90" preserve-order>
+                        <div class="masonry-brick" ng-repeat="book in books" style="padding-top: 20px">
+                            <div class="card card-block" style="width: 160px; padding: 15px">
+                                <img class="book-thumbnail"ng-src="{{book.thumbnail}}" alt="A masonry brick">
+                                <div class="text_wrapper-mosaic border_top_grey">
+                                    <h2 class="book-title-mosaic">{{book.title}}</h2>
+                                    <p class="book-author-mosaic">{{book.authors}}</p>
                                     <p class="book-author">{{book.categories}}</p>
                                 </div>
                             </div>

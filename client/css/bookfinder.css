@@ -1,4 +1,4 @@
-body {padding-top: 70px;}
+body {padding-top: 70px; background-color: #E6E7EC}
 
 .book-title {
     color: #0a69b9;
@@ -13,7 +13,35 @@ body {padding-top: 70px;}
     margin-bottom: 1px;
 }
 
+.book-title-mosaic{
+    color: #0a69b9;
+    font-size: 13px;
+    overflow: hidden;
+    line-height: 15px;
+    max-width: 140px;
+    margin-bottom: 1px;
+}
+
+.book-thumbnail{
+    display: block;
+    margin: 0 auto;
+}
+
 .book-author {
+    color: #595E68;
+    font-size: 11px;
+    margin-top: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 15px;
+    max-height: 30px;
+    margin-top: 1px;
+}
+
+.book-author-mosaic {
     color: #595E68;
     font-size: 11px;
     margin-top: 5px;

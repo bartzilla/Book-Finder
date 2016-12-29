@@ -18,7 +18,7 @@ angular.module('booksApp')
 
     $scope.nextPage = function() {
 
-      $scope.search = 'harry potter';
+      // $scope.search = 'harry potter';
 
       if($scope.busy || $scope.search === undefined) return;
 
