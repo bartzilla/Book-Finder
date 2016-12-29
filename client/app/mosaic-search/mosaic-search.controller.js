@@ -9,14 +9,18 @@ angular.module('booksApp')
     var step = 0;
 
     $scope.searchBook = function(){
-      $scope.books = [];
-      step = 0;
-      $scope.nextPage();
+      if($scope.search !== ''){
+        $scope.books = [];
+        step = 0;
+        $scope.nextPage();
+      }
     };
 
     $scope.nextPage = function() {
 
-      if($scope.busy) return;
+      $scope.search = 'harry potter';
+
+      if($scope.busy || $scope.search === undefined) return;
 
       $scope.busy = true;
       $http({
