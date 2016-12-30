@@ -6,7 +6,8 @@ angular.module('booksApp', [
   'stormpath.templates',
   'infinite-scroll',
   'wu.masonry',
-  'ngMaterial'
+  'ngMaterial',
+  'ui.bootstrap'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider

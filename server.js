@@ -9,7 +9,6 @@ mongoose.connect('mongodb://localhost/rest_books');
 
 // Express
 var app = express();
-
 app.use('/', express.static(__dirname + '/client'));
 
 

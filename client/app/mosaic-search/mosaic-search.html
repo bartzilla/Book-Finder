@@ -10,6 +10,9 @@
     </div>
 </nav>
 
+<div ng-controller="BookDetailsCtrl">
+    <button type="button" class="btn btn-default btn-lg" id="myBtn" ng-click="showModal()">Login</button>
+</div>
 
 <div class="container" infinite-scroll="nextPage()" infinite-scroll-disabled="busy"
     infinite-scroll-distance="0">
@@ -17,7 +20,7 @@
         <div class="card-group">
                 <div masonry column-width="90" preserve-order>
                     <div class="masonry-brick" ng-repeat="book in books" style="padding-top: 20px">
-                        <a href="" ng-click="showAdvanced($event)">
+                        <a href="" ng-click="showDialog($event)">
                             <div class="card card-block" style="width: 160px; padding: 15px">
                                 <img class="book-thumbnail"ng-src="{{book.thumbnail}}" alt="A masonry brick">
                                 <div class="text_wrapper-mosaic border_top_grey">
@@ -34,30 +37,14 @@
     </div>
 </div>
 
-<!--<div class="container" infinite-scroll="nextPage()" infinite-scroll-disabled="busy"-->
-     <!--infinite-scroll-distance="0">-->
-    <!--<div id="row">-->
-        <!--<div class="card-group">-->
-            <!--<div masonry class="col-xs-2">-->
-                <!--<a href="">-->
-                    <!--<div class="card card-block">-->
-                        <!--<div class="masonry-brick" ng-repeat="book in books">-->
-                            <!--<img ng-src="{{book.thumbnail}}" alt="A masonry brick">-->
-                        <!--</div>-->
-                        <!--<div class="text_wrapper border_top_grey">-->
-                            <!--<h2 class="book-title">{{book.title}}</h2>-->
-                            <!--<p class="book-author">{{book.authors}}</p>-->
-                            <!--<p class="book-author">{{book.categories}}</p>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</a>-->
 
-            <!--</div>-->
-            <!--<div ng-show="busy">Loading data..</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-
-
+<!--<script>-->
+    <!--$(document).ready(function(){-->
+        <!--$("#myBtn").click(function(){-->
+            <!--console.log('YO');-->
+            <!--$("#myModal").modal();-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
 
 <!--<div ng-include="'components/footer/footer.html'"></div>-->

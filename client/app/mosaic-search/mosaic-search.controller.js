@@ -1,46 +1,42 @@
 'use strict';
 
 angular.module('booksApp')
-  .controller('MosaicSearch', function ($scope, $http, $mdDialog) {
+  .controller('MosaicSearch', function ($scope, $http, $mdPanel) {
 
     $scope.busy = false;
     $scope.allData = [];
     $scope.books = [];
     var step = 0;
 
+    $scope.showDialog = function(ev) {
+      var position = $mdPanel.newPanelPosition()
+        .absolute()
+        .center();
 
+      var config = {
+        attachTo: angular.element(document.body),
+        controller: PanelDialogCtrl,
+        controllerAs: 'ctrl',
+        disableParentScroll: false,
+        templateUrl: 'app/mosaic-search/panel.tmpl.html',
+        hasBackdrop: true,
+        // panelClass: 'demo-dialog-example',
+        position: position,
+        trapFocus: true,
+        zIndex: 150,
+        clickOutsideToClose: true,
+        escapeToClose: true,
+        focusOnOpen: true
+      };
 
-    $scope.showAdvanced = function(ev) {
-      $mdDialog.show({
-        controller: DialogController,
-        templateUrl: 'app/mosaic-search/dialog1.tmpl.html',
-        parent: angular.element(document.body),
-        targetEvent: ev,
-        clickOutsideToClose:true,
-        fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
-      })
-        .then(function(answer) {
-          $scope.status = 'You said the information was "' + answer + '".';
-        }, function() {
-          $scope.status = 'You cancelled the dialog.';
-        });
+      $mdPanel.open(config);
     };
 
-    function DialogController($scope, $mdDialog) {
-      $scope.hide = function() {
-        $mdDialog.hide();
-      };
 
-      $scope.cancel = function() {
-        $mdDialog.cancel();
-      };
 
-      $scope.answer = function(answer) {
-        $mdDialog.hide(answer);
-      };
+    function PanelDialogCtrl(mdPanelRef) {
+      // this._mdPanelRef = mdPanelRef;
     }
-
-
 
     $scope.searchBook = function(){
       if($scope.search !== ''){
