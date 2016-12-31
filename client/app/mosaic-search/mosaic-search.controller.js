@@ -1,42 +1,31 @@
 'use strict';
 
 angular.module('booksApp')
-  .controller('MosaicSearch', function ($scope, $http, $mdPanel) {
+  .controller('MosaicSearch', function ($scope, $http, $uibModal) {
 
     $scope.busy = false;
     $scope.allData = [];
     $scope.books = [];
     var step = 0;
 
-    $scope.showDialog = function(ev) {
-      var position = $mdPanel.newPanelPosition()
-        .absolute()
-        .center();
-
-      var config = {
-        attachTo: angular.element(document.body),
-        controller: PanelDialogCtrl,
-        controllerAs: 'ctrl',
-        disableParentScroll: false,
-        templateUrl: 'app/mosaic-search/panel.tmpl.html',
-        hasBackdrop: true,
-        // panelClass: 'demo-dialog-example',
-        position: position,
-        trapFocus: true,
-        zIndex: 150,
-        clickOutsideToClose: true,
-        escapeToClose: true,
-        focusOnOpen: true
-      };
-
-      $mdPanel.open(config);
+    $scope.open = function () {
+      $uibModal.open({
+        animation: false,
+        // ariaLabelledBy: 'modal-title',
+        // ariaDescribedBy: 'modal-body',
+        templateUrl: 'app/book-details-modal/book-details-modal.html',
+        controller: 'BookDetailsCtrl'
+        // controllerAs: '$ctrl',
+        // size: size,
+        // appendTo: parentElem,
+        // resolve: {
+        //   items: function () {
+        //     return $ctrl.items;
+        //   }
+        // }
+      });
     };
 
-
-
-    function PanelDialogCtrl(mdPanelRef) {
-      // this._mdPanelRef = mdPanelRef;
-    }
 
     $scope.searchBook = function(){
       if($scope.search !== ''){
@@ -48,7 +37,7 @@ angular.module('booksApp')
 
     $scope.nextPage = function() {
 
-      $scope.search = 'harry potter';
+      // $scope.search = 'harry potter';
       if($scope.busy || $scope.search === undefined) return;
 
       $scope.busy = true;
@@ -112,10 +101,6 @@ angular.module('booksApp')
       }
 
       return 'Unknown';
-    };
-
-    var myFunction = function() {
-      window.alert('Yo')
     };
 
   });
