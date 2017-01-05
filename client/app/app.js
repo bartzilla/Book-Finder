@@ -7,7 +7,8 @@ angular.module('booksApp', [
   'infinite-scroll',
   'wu.masonry',
   'ngMaterial',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ngSanitize'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider

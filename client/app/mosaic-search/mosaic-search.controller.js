@@ -8,21 +8,23 @@ angular.module('booksApp')
     $scope.books = [];
     var step = 0;
 
-    $scope.open = function () {
+    $scope.open = function (selfLink) {
+      console.log('selfLink', selfLink);
       $uibModal.open({
         animation: false,
         // ariaLabelledBy: 'modal-title',
         // ariaDescribedBy: 'modal-body',
         templateUrl: 'app/book-details-modal/book-details-modal.html',
-        controller: 'BookDetailsCtrl'
+        controller: 'BookDetailsCtrl',
+        size: 'lg', // sm, md, lg
+        resolve: {
+          selfLink: function () {
+            return selfLink;
+          }
+        }
         // controllerAs: '$ctrl',
-        // size: size,
+
         // appendTo: parentElem,
-        // resolve: {
-        //   items: function () {
-        //     return $ctrl.items;
-        //   }
-        // }
       });
     };
 
@@ -37,8 +39,8 @@ angular.module('booksApp')
 
     $scope.nextPage = function() {
 
-      // $scope.search = 'harry potter';
-      if($scope.busy || $scope.search === undefined) return;
+      $scope.search = 'all the light we cannot see';
+      // if($scope.busy || $scope.search === undefined) return;
 
       $scope.busy = true;
       $http({
@@ -63,6 +65,7 @@ angular.module('booksApp')
       for(var i = 0; i < rawData.length; i++) {
         $scope.data[i] = {
           thumbnail: getThumbnail(rawData[i].volumeInfo.imageLinks),
+          selfLink: rawData[i].selfLink ? rawData[i].selfLink : '',
           title: rawData[i].volumeInfo.title ? rawData[i].volumeInfo.title.toUpperCase() : '',
           publisher: getPublisher(rawData[i].volumeInfo.publisher, rawData[i].volumeInfo.publishedDate),
           pageCount: rawData[i].volumeInfo.pageCount ? rawData[i].volumeInfo.pageCount : '',
