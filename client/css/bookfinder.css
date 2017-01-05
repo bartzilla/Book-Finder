@@ -21,10 +21,15 @@ body {padding-top: 70px; background-color: #E6E7EC}
 }
 
 .book-description{
-    /*font-size: 16px;*/
-    /*line-height: 16px;*/
-    height: 132px;
+    height: 190px;
     overflow: hidden;
+    /*text-overflow: ellipsis;*/
+    /*display: -webkit-box;*/
+    /*-webkit-box-orient: vertical;*/
+    /*-webkit-line-clamp: 2;*/
+    /*line-height: 15px;*/
+    /*max-height: 30px;*/
+    margin-top: 1px;
 }
 
 .show {
@@ -62,6 +67,16 @@ body {padding-top: 70px; background-color: #E6E7EC}
     line-height: 15px;
     max-height: 30px;
     margin-top: 1px;
+}
+
+.book-description{
+    text-align: justify;
+    font-size: 13px;
+}
+
+.publisher{
+    font-size: 14px;
+    padding-bottom: 5px;
 }
 
 .book-author-mosaic {

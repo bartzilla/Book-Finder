@@ -10,14 +10,14 @@
             <div class="col-md-2">
                 <img ng-src="{{book.thumbnail}}" class="modal-book-thumbnail">
             </div>
-            <div class="col-md-10">
-                <div class="book-author">{{book.authors}}</div>
+            <div class="col-md-10" style="padding-left: 30px;">
+                <div>By: <a href="">{{book.authors}}</a></div>
                 <div class="publisher">
                     {{book.publisher}} {{book.pageCount}}
                 </div>
                 <div  class="book-description" ng-class="{show: show}" ng-click="show = true" ng-bind-html="book.description">
 
-                </div><button ng-click="show = true">Show text</button>
+                <!--</div><button ng-click="show = true">Show text</button>-->
             </div>
         </div>
     </div>
