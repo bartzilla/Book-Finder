@@ -39,8 +39,8 @@ angular.module('booksApp')
 
     $scope.nextPage = function() {
 
-      $scope.search = 'all the light we cannot see';
-      // if($scope.busy || $scope.search === undefined) return;
+      // $scope.search = 'all the light we cannot see';
+      if($scope.busy || $scope.search === undefined) return;
 
       $scope.busy = true;
       $http({
