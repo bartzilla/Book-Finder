@@ -28,7 +28,6 @@ angular.module('booksApp')
       });
     };
 
-
     $scope.searchBook = function(){
       if($scope.search !== ''){
         $scope.books = [];

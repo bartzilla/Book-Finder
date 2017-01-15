@@ -21,7 +21,6 @@ angular.module('booksApp')
     });
 
     var getThumbnail = function (thumbnailUrl) {
-
       if(thumbnailUrl){
         // var largeThumbnail = thumbnailUrl.thumbnail.replace(/(zoom=)[^\&]+/, '$1' + 1);
 
@@ -50,7 +49,4 @@ angular.module('booksApp')
 
       return 'Unknown';
     };
-
-
-
   });
